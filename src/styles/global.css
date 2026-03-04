@@ -1,0 +1,169 @@
+/* ═══════════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Voces Narrativas / Don Quijote
+   Aesthetic: Scholarly Ink · Editorial Manuscript · Cervantine
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Palette — Ink & Parchment */
+  --ink-900: #0d0c0a;
+  --ink-800: #1a1814;
+  --ink-700: #2c2920;
+  --ink-600: #3d3a30;
+  --ink-400: #7a7468;
+  --ink-300: #a09890;
+  --ink-200: #c8c2b8;
+  --ink-100: #e4dfd6;
+
+  --parchment-900: #a8906a;
+  --parchment-800: #c4a97a;
+  --parchment-600: #d4b98a;
+  --parchment-400: #e8d5b0;
+  --parchment-200: #f3ead8;
+  --parchment-100: #faf5eb;
+  --parchment-50:  #fdfaf4;
+
+  --vermillion: #c0392b;
+  --vermillion-light: #e74c3c;
+  --vermillion-bg: #fdf0ee;
+
+  --emerald: #1a6b3c;
+  --emerald-light: #27ae60;
+  --emerald-bg: #eef7f2;
+
+  --sapphire: #1a3a6b;
+  --sapphire-light: #2980b9;
+  --sapphire-bg: #eef2f9;
+
+  --gold: #c0922a;
+  --gold-light: #e6a817;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Crimson Pro', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(13,12,10,0.10), 0 1px 2px rgba(13,12,10,0.06);
+  --shadow-md: 0 4px 12px rgba(13,12,10,0.12), 0 2px 4px rgba(13,12,10,0.06);
+  --shadow-lg: 0 12px 32px rgba(13,12,10,0.14), 0 4px 8px rgba(13,12,10,0.08);
+  --shadow-inset: inset 0 1px 3px rgba(13,12,10,0.08);
+
+  /* Borders */
+  --border-hairline: 1px solid var(--ink-100);
+  --border-light: 1px solid var(--ink-200);
+  --border-medium: 1px solid var(--ink-300);
+
+  /* Radius */
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* Transitions */
+  --transition-fast: 120ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  background-color: var(--parchment-50);
+  color: var(--ink-800);
+  min-height: 100vh;
+
+  /* Subtle paper grain texture via SVG */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ── Typography ───────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--ink-900);
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 2.5vw, 2.1rem); }
+h3 { font-size: 1.4rem; font-weight: 500; }
+h4 { font-size: 1.15rem; font-weight: 500; }
+
+p { margin: 0; }
+
+a { color: var(--sapphire); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--parchment-200); }
+::-webkit-scrollbar-thumb { background: var(--ink-300); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-400); }
+
+/* ── Utilities ────────────────────────────────────────────── */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* ReactFlow base overrides */
+.react-flow__background { background: var(--parchment-200) !important; }
+.react-flow__controls {
+  background: var(--parchment-50) !important;
+  border: var(--border-light) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.react-flow__controls-button {
+  background: transparent !important;
+  border-bottom: var(--border-hairline) !important;
+  color: var(--ink-600) !important;
+}
+.react-flow__controls-button:hover { background: var(--parchment-200) !important; }
+.react-flow__minimap { border: var(--border-light) !important; }
+.react-flow__edge-path { stroke: var(--ink-400) !important; }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-up { animation: fadeUp 0.4s ease both; }
+.animate-fade-in { animation: fadeIn 0.3s ease both; }
