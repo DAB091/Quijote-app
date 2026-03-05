@@ -1,5 +1,5 @@
 import { useExamStore } from '@/store/examStore'
-import { narrativeFragments, voiceById, canonicalVoices } from '@/data/canonicalData'
+import { narrativeFragments, voiceById } from '@/data/canonicalData'
 import { Card, PhaseHeader, Button } from '@/components/ui'
 
 export function Phase1() {

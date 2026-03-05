@@ -48,7 +48,6 @@ export function useExamTimer() {
   const submitExam = () => {
     if (hasAutoSubmitted.current) return
     hasAutoSubmitted.current = true
-    const state = useExamStore.getState()
     const result = runFullEvaluation(
       answers.phase1,
       answers.phase2,

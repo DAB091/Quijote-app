@@ -165,11 +165,10 @@ export function PhaseHeader({ phase, title, subtitle, total }: PhaseHeaderProps)
               fontSize: 11,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',
-              color: 'var(--ink-300)',
+              color: 'var(--parchment-400)',
               background: 'var(--ink-800)',
               padding: '3px 10px',
               borderRadius: 'var(--radius-sm)',
-              color: 'var(--parchment-400)',
             }}>
               Fase {phase} de 5
             </span>
